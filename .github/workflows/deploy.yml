@@ -1,4 +1,4 @@
-name: Deploy Frontend to Vercel
+name: CI — Build Check
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: Deploy to Vercel
+  build:
+    name: Build & Lint Check
     runs-on: ubuntu-latest
 
     steps:
@@ -26,15 +26,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build project
+      - name: Lint
+        run: npm run lint --if-present
+
+      - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL || 'https://trust-website-backend.onrender.com' }}
 
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
+      - name: Build succeeded
+        run: echo "✅ Build passed successfully!"
+
+# NOTE: Actual deployment to Vercel is handled automatically by the
+# Vercel GitHub App — no secrets needed here. Just connect your repo
+# at vercel.com and every push to main will auto-deploy.
