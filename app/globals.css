@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-outfit), ui-serif, Georgia, serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #f97316; /* orange-600 approx */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+@utility btn-primary {
+  @apply bg-orange-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 hover:bg-orange-700 shadow-lg;
+}
+
+@utility section-title {
+  @apply text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800;
+}
+
+@utility card-premium {
+  @apply bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300 border border-gray-100;
+}

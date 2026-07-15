@@ -1,0 +1,1 @@
+'use client'; import AdminModule, { CMSFields } from '../placeholder'; import { Image as ImageIcon } from 'lucide-react'; const GalleryPage = () => <AdminModule title='Media Gallery' description='Organize and publish photos and videos of trust activities.' fields={CMSFields.gallery} endpoint='/api/gallery' icon={ImageIcon} />; export default GalleryPage;

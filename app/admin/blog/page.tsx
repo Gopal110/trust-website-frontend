@@ -1,0 +1,1 @@
+'use client'; import AdminModule, { CMSFields } from '../placeholder'; import { FileText } from 'lucide-react'; const BlogPage = () => <AdminModule title='Blog & News' description='Publish updates, stories, and news for the community.' fields={CMSFields.blogs} endpoint='/api/blogs' icon={FileText} />; export default BlogPage;

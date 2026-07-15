@@ -1,0 +1,1 @@
+'use client'; import AdminModule, { CMSFields } from '../placeholder'; import { Image as ImageIcon } from 'lucide-react'; const BannersPage = () => <AdminModule title='Banner Management' description='Update homepage sliders and promotional banners.' fields={CMSFields.banners} endpoint='/api/banners' icon={ImageIcon} />; export default BannersPage;

@@ -1,0 +1,1 @@
+'use client'; import AdminModule, { CMSFields } from '../placeholder'; import { Calendar } from 'lucide-react'; const EventsPage = () => <AdminModule title='Foundation Events' description='Schedule and manage upcoming trust events and programs.' fields={CMSFields.events} endpoint='/api/events' icon={Calendar} />; export default EventsPage;
