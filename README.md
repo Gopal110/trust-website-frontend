@@ -53,7 +53,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/trust-website-frontend.git
+git clone https://github.com/Gopal110/trust-website-frontend.git
 cd trust-website-frontend
 
 # Install dependencies
@@ -106,7 +106,7 @@ client/
 
 ## 🔗 Related Repositories
 
-- **Backend API**: [trust-website-backend](https://github.com/YOUR_USERNAME/trust-website-backend)
+- **Backend API**: [trust-website-backend](https://github.com/Gopal110/trust-website-backend)
 
 ---
 
