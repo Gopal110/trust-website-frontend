@@ -81,18 +81,33 @@ const HeroSlider = () => {
           transition={{ duration: 1 }}
           className="absolute inset-0 w-full h-full"
         >
-          {/* Background Image */}
-          <motion.img 
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 6, ease: "linear" }}
-            src={currentSlide.imageUrl} 
-            alt={currentSlide.title} 
-            className="absolute inset-0 h-full w-full object-cover"
-            onError={(e) => {
-              e.currentTarget.src = '/banner1.png';
-            }}
-          />
+          {/* Background Media */}
+          {currentSlide.imageUrl && currentSlide.imageUrl.match(/\.(mp4|webm|mov)$/i) ? (
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
+              src={currentSlide.imageUrl} 
+              onError={(e) => {
+                // Fallback to default image if video fails to load
+                e.currentTarget.outerHTML = '<img src="/banner1.png" class="absolute inset-0 h-full w-full object-cover" alt="fallback" />';
+              }}
+            />
+          ) : (
+            <motion.img 
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 6, ease: "linear" }}
+              src={currentSlide.imageUrl} 
+              alt={currentSlide.title} 
+              className="absolute inset-0 h-full w-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = '/banner1.png';
+              }}
+            />
+          )}
 
           {/* Content */}
           <div className="relative z-20 h-full flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

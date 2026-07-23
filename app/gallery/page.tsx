@@ -91,18 +91,33 @@ const GalleryPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredGallery.map((item) => (
               <div key={item._id} className="group relative overflow-hidden rounded-3xl bg-gray-100 aspect-video shadow-lg hover:shadow-2xl transition-all duration-500">
-                {/* Image */}
-                <img
-                  src={item.imageUrl}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Gallery+Image';
-                  }}
-                />
+                {/* Media */}
+                {item.type === 'video' || item.imageUrl.match(/\.(mp4|webm|mov)$/i) ? (
+                  <video
+                    src={item.imageUrl}
+                    controls
+                    preload="metadata"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    onError={(e) => {
+                      // Fallback for broken video
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://via.placeholder.com/400x300?text=Gallery+Image';
+                    }}
+                  />
+                )}
                 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-orange-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center text-white p-6 text-center">
+                <div className="absolute inset-0 bg-orange-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center text-white p-6 text-center pointer-events-none">
                   <h3 className="text-xl font-bold mb-2">{item.title || 'Gallery Item'}</h3>
                   <p className="text-sm">श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट</p>
                   <p className="text-xs mt-2 opacity-80">
