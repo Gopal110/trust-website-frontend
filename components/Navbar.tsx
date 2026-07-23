@@ -77,7 +77,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 py-4 px-4 space-y-4 shadow-xl animate-in fade-in slide-in-from-top-4">
+        <div className="lg:hidden flex flex-col bg-white border-t border-gray-100 py-4 px-4 space-y-4 shadow-xl animate-in fade-in slide-in-from-top-4">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/about">About Us</NavLink>
           <NavLink href="/services">Our Work</NavLink>
