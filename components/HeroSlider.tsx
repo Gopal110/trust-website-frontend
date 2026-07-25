@@ -26,7 +26,10 @@ const HeroSlider = () => {
         if (res.ok) {
           const data = await res.json();
           const activeBanners = (Array.isArray(data) ? data : data.data || []).filter(
-            (b: BannerItem) => b.active !== false
+            (b: BannerItem) =>
+              b.active !== false &&
+              b.imageUrl &&                          // must have imageUrl
+              (b.imageUrl.startsWith('http') || b.imageUrl.startsWith('/')) // must be a real URL
           );
           setBanners(activeBanners);
         }
