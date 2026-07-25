@@ -4,18 +4,26 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+// ─── NavLink defined OUTSIDE Navbar so it is never recreated during render ───
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  onClick?: () => void;
+}
+
+const NavLink = ({ href, children, onClick }: NavLinkProps) => (
+  <Link
+    href={href}
+    className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
+    onClick={onClick}
+  >
+    {children}
+  </Link>
+);
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <Link 
-      href={href} 
-      className="text-gray-700 hover:text-orange-600 font-medium transition-colors"
-      onClick={() => setIsOpen(false)}
-    >
-      {children}
-    </Link>
-  );
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
@@ -79,17 +87,17 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="lg:hidden flex flex-col bg-white border-t border-gray-100 py-4 px-4 space-y-4 shadow-xl animate-in fade-in slide-in-from-top-4">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/about">About Us</NavLink>
-          <NavLink href="/services">Our Work</NavLink>
-          <NavLink href="/gallery">Gallery</NavLink>
-          <NavLink href="/events">Events</NavLink>
-          <NavLink href="/blog">News</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-          <Link 
-            href="/donate" 
+          <NavLink href="/" onClick={closeMenu}>Home</NavLink>
+          <NavLink href="/about" onClick={closeMenu}>About Us</NavLink>
+          <NavLink href="/services" onClick={closeMenu}>Our Work</NavLink>
+          <NavLink href="/gallery" onClick={closeMenu}>Gallery</NavLink>
+          <NavLink href="/events" onClick={closeMenu}>Events</NavLink>
+          <NavLink href="/blog" onClick={closeMenu}>News</NavLink>
+          <NavLink href="/contact" onClick={closeMenu}>Contact</NavLink>
+          <Link
+            href="/donate"
             className="block w-full text-center bg-orange-600 text-white px-5 py-3 rounded-xl font-bold hover:bg-orange-700"
-            onClick={() => setIsOpen(false)}
+            onClick={closeMenu}
           >
             Donate Now
           </Link>

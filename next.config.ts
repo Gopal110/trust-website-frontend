@@ -5,18 +5,14 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '5000',
-        pathname: '/uploads/**',
-      },
-      {
+        // Cloudinary CDN — all uploaded media
         protocol: 'https',
         hostname: 'res.cloudinary.com',
+      },
+      {
+        // Placeholder images used in dev/design
+        protocol: 'https',
+        hostname: 'via.placeholder.com',
       },
     ],
   },
