@@ -220,7 +220,7 @@ const AdminContacts = () => {
                        </div>
                        <div className="flex items-center text-gray-500">
                           <Phone size={16} className="mr-3 text-orange-600" />
-                          <span className="text-sm font-bold">{activeMsg.phone}</span>
+                          <span className="text-sm font-bold">{activeMsg.phone || activeMsg.mobile || '—'}</span>
                        </div>
                     </div>
                     <div className="text-right">
