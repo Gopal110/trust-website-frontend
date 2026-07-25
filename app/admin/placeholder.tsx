@@ -397,9 +397,18 @@ const AdminModule = ({ title, description, fields, endpoint, icon: Icon }: Admin
                                <input 
                                  type="file" 
                                  className="hidden" 
+                                 accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime,application/pdf"
                                  onChange={async (e) => {
                                    const file = e.target.files?.[0];
                                    if (file) {
+                                     const allowedTypes = [
+                                       'image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif',
+                                       'video/mp4', 'video/webm', 'video/quicktime', 'application/pdf'
+                                     ];
+                                     if (!allowedTypes.includes(file.type)) {
+                                       showToast('Invalid file format. Only JPG, PNG, WEBP, GIF, MP4, WEBM, MOV, and PDF are allowed.', 'error');
+                                       return;
+                                     }
                                      const formDataUpload = new FormData();
                                      formDataUpload.append('file', file);
                                      const token = localStorage.getItem('adminToken');
@@ -437,9 +446,16 @@ const AdminModule = ({ title, description, fields, endpoint, icon: Icon }: Admin
                         <input 
                           type={field.type}
                           placeholder={field.placeholder}
+                          maxLength={field.name === 'phone' || field.name === 'mobile' ? 10 : undefined}
                           className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm focus:ring-4 focus:ring-orange-500/10 focus:border-orange-500 outline-none transition-all placeholder:text-gray-300"
                           value={formData[field.name] || ''}
-                          onChange={(e) => setFormData({ ...formData, [field.name]: e.target.value })}
+                          onChange={(e) => {
+                            let val = e.target.value;
+                            if (field.name === 'phone' || field.name === 'mobile') {
+                              val = val.replace(/\D/g, '').slice(0, 10);
+                            }
+                            setFormData({ ...formData, [field.name]: val });
+                          }}
                         />
                       )}
                    </div>

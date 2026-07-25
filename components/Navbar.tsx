@@ -29,6 +29,7 @@ const Navbar = () => {
                    src="/logo.png" 
                    alt="Trust Logo" 
                    fill
+                   sizes="56px"
                    className="object-contain"
                    priority
                  />

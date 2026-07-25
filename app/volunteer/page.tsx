@@ -25,10 +25,17 @@ const VolunteerPage = () => {
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    if (name === 'mobile') {
+      // Restrict to digits only, max 10 digits
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 10);
+      setFormData(prev => ({ ...prev, mobile: digitsOnly }));
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value }));
+    }
   };
 
   const handleSkillToggle = (skill: string) => {
@@ -39,6 +46,20 @@ const VolunteerPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg('');
+
+    // Phone number validation: exactly 10 digits
+    if (formData.mobile.length !== 10) {
+      setErrorMsg('Mobile number must be exactly 10 digits.');
+      return;
+    }
+
+    // Email validation (if provided)
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      setErrorMsg('Please enter a valid email address.');
+      return;
+    }
+
     setLoading(true);
     try {
       const res = await fetch(`${API_BASE}/api/volunteers`, {
@@ -46,14 +67,16 @@ const VolunteerPage = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...formData, interests: selectedSkills })
       });
+      const data = await res.json();
       if (res.ok) {
         setSuccess(true);
       } else {
-        alert('Submission failed. Please try again.');
+        const errorText = data.errors?.[0]?.msg || data.message || 'Submission failed. Please check your inputs.';
+        setErrorMsg(errorText);
       }
     } catch (err) {
       console.error(err);
-      alert('An error occurred.');
+      setErrorMsg('An error occurred during submission.');
     } finally {
       setLoading(false);
     }
@@ -137,6 +160,11 @@ const VolunteerPage = () => {
              ) : (
                <>
                 <h2 className="text-2xl font-bold mb-8 text-gray-800">Volunteer Registration Form</h2>
+                {errorMsg && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-600 text-sm font-bold rounded-xl">
+                    {errorMsg}
+                  </div>
+                )}
                 <form onSubmit={handleSubmit} className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
@@ -144,15 +172,32 @@ const VolunteerPage = () => {
                         <input type="text" name="fullName" value={formData.fullName} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none" placeholder="Enter full name" required />
                       </div>
                       <div>
-                        <label className="block text-sm font-bold text-gray-700 mb-2">Mobile Number</label>
-                        <input type="tel" name="mobile" value={formData.mobile} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none" placeholder="Enter mobile" required />
+                        <label className="block text-sm font-bold text-gray-700 mb-2">Mobile Number (10 Digits)</label>
+                        <input 
+                          type="tel" 
+                          name="mobile" 
+                          value={formData.mobile} 
+                          onChange={handleInputChange} 
+                          maxLength={10} 
+                          pattern="\d{10}" 
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none font-medium" 
+                          placeholder="Enter 10-digit mobile number" 
+                          required 
+                        />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Email Address</label>
-                        <input type="email" name="email" value={formData.email} onChange={handleInputChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none" placeholder="Enter email" />
+                        <input 
+                          type="email" 
+                          name="email" 
+                          value={formData.email} 
+                          onChange={handleInputChange} 
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-orange-500 outline-none font-medium" 
+                          placeholder="example@domain.com" 
+                        />
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-gray-700 mb-2">Age</label>

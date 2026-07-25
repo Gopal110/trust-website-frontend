@@ -195,6 +195,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
                       src="/logo.png" 
                       alt="Admin" 
                       fill 
+                      sizes="48px"
                       className="object-contain p-1"
                     />
                   </div>

@@ -35,9 +35,28 @@ const DonatePage = () => {
   const [address, setAddress] = useState('');
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleMobileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const digitsOnly = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setMobile(digitsOnly);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg('');
+
+    // Phone number validation: exactly 10 digits
+    if (mobile.length !== 10) {
+      setErrorMsg('Mobile number must be exactly 10 digits.');
+      return;
+    }
+
+    if (!amount || parseFloat(amount) <= 0) {
+      setErrorMsg('Please enter a valid donation amount.');
+      return;
+    }
+
     setLoading(true);
     try {
       const res = await fetch(`${API_BASE}/api/donations/submit`, {
@@ -52,6 +71,7 @@ const DonatePage = () => {
           address
         })
       });
+      const data = await res.json();
       if (res.ok) {
         setSuccess(true);
         setName('');
@@ -60,11 +80,12 @@ const DonatePage = () => {
         setTransactionId('');
         setAddress('');
       } else {
-        alert('Submission failed. Please try again.');
+        const errorText = data.errors?.[0]?.msg || data.message || 'Submission failed. Please check your entries.';
+        setErrorMsg(errorText);
       }
     } catch (err) {
       console.error(err);
-      alert('An error occurred.');
+      setErrorMsg('An error occurred during submission.');
     } finally {
       setLoading(false);
     }
@@ -141,7 +162,6 @@ const DonatePage = () => {
                      Scan to Pay (UPI)
                   </h2>
                   <div className="bg-white w-56 h-56 mx-auto mb-8 flex items-center justify-center rounded-[30px] shadow-2xl p-4 border-8 border-gray-50 relative group-hover:scale-105 transition-transform duration-500">
-                     {/* Replace with actual QR image */}
                      <div className="w-full h-full bg-gray-50 rounded-2xl flex items-center justify-center text-gray-300 font-bold text-xs uppercase text-center p-6 border-2 border-dashed border-gray-200">
                         TRUST <br /> UPI QR CODE <br /> COMING SOON
                      </div>
@@ -180,6 +200,12 @@ const DonatePage = () => {
                    </div>
                    <p className="text-gray-500 font-medium">Please fill the form after making a payment so we can issue your exact receipt.</p>
                 </div>
+
+                {errorMsg && (
+                  <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-600 text-sm font-bold rounded-xl">
+                    {errorMsg}
+                  </div>
+                )}
 
                 <form onSubmit={handleSubmit} className="space-y-8">
                    {/* Amount Selection */}
@@ -234,13 +260,15 @@ const DonatePage = () => {
                          />
                       </div>
                       <div className="space-y-2">
-                         <label className="text-xs font-black text-gray-500 uppercase tracking-widest ml-2">Mobile Number</label>
+                         <label className="text-xs font-black text-gray-500 uppercase tracking-widest ml-2">Mobile Number (10 Digits)</label>
                          <input 
                           type="tel" 
                           value={mobile}
-                          onChange={(e) => setMobile(e.target.value)}
+                          onChange={handleMobileChange}
+                          maxLength={10}
+                          pattern="\d{10}"
                           className="w-full px-6 py-4 rounded-2xl border border-gray-200 outline-none focus:border-orange-500 focus:bg-white bg-gray-100/50 transition-all font-medium" 
-                          placeholder="Enter mobile" 
+                          placeholder="Enter 10-digit mobile" 
                           required 
                          />
                       </div>
