@@ -10,14 +10,8 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const router = useRouter();
 
-  // const handleLogin = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   setError('');
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    alert("handleLogin called");
-
     setError('');
 
     try {
