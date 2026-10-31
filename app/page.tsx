@@ -15,7 +15,21 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-// Custom Cow icon if needed, or use Heart
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Shri Shivcharan Dharmarth Manav Sewa Trust | Official Home',
+  description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट की आधिकारिक वेबसाइट। मानव सेवा, गौ सेवा, निःशुल्क स्वास्थ्य शिविर, अन्नदान, वृक्षारोपण एवं भारतीय संस्कृति का संरक्षण।',
+  alternates: {
+    canonical: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/',
+  },
+  openGraph: {
+    title: 'Shri Shivcharan Dharmarth Manav Sewa Trust | Official Home',
+    description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट की आधिकारिक वेबसाइट। मानव सेवा, गौ सेवा, अन्नदान एवं समाज कल्याण हेतु समर्पित।',
+    url: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/',
+  },
+};
+
 const GauSevaIcon = Milk;
 
 const HomePage = () => {

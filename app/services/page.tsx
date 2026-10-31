@@ -1,5 +1,19 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { HeartHandshake, GraduationCap, Stethoscope, Soup, Trees, Milk, ShieldCheck, Heart, Sprout, Leaf, Sparkles, Sun } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Our Work & Services | Shri Shivcharan Dharmarth Manav Sewa Trust',
+  description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट के सेवा कार्य: गरीबों की मदद, स्वास्थ्य शिविर, गौ सेवा, अन्नदान, वृक्षारोपण एवं प्राकृतिक कृषि।',
+  alternates: {
+    canonical: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/services',
+  },
+  openGraph: {
+    title: 'Our Work & Services | Shri Shivcharan Dharmarth Manav Sewa Trust',
+    description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट के सेवा कार्य एवं समाज कल्याण अभियान।',
+    url: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/services',
+  },
+};
 
 const ServicesPage = () => {
   const services = [

@@ -19,6 +19,27 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/blogs',
+        destination: '/blog',
+        permanent: true,
+      },
+      {
+        source: '/blogs/:path*',
+        destination: '/blog/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'shri-shiv-charan-dharmarth-manav-seva-trust.com',
+          },
+        ],
+        destination: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [
           {
