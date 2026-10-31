@@ -14,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/'],
       },
     ],
-    sitemap: 'https://client-dsvvv.vercel.app/sitemap.xml',
+    sitemap: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/sitemap.xml',
   };
 }

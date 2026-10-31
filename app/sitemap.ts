@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://client-dsvvv.vercel.app';
+  const baseUrl = 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com';
   const currentDate = new Date();
 
   return [

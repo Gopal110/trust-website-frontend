@@ -6,4 +6,4 @@ User-agent: Googlebot
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://client-dsvvv.vercel.app/sitemap.xml
+Sitemap: https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/sitemap.xml

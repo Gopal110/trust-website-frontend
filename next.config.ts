@@ -16,6 +16,21 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'client-dsvvv.vercel.app',
+          },
+        ],
+        destination: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://client-dsvvv.vercel.app"),
+  metadataBase: new URL("https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com"),
   title: {
     default: "Shri Shivcharan Dharmarth Manav Sewa Trust | मानव सेवा, गौ सेवा",
     template: "%s | Shri Shivcharan Dharmarth Manav Sewa Trust",
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://client-dsvvv.vercel.app",
+    canonical: "https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com",
   },
   openGraph: {
     title: "Shri Shivcharan Dharmarth Manav Sewa Trust | मानव सेवा, गौ सेवा",
     description: "श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट एक समर्पित सामाजिक संस्था है, जो मानवता की सेवा एवं समाज कल्याण हेतु निरंतर कार्यरत है।",
-    url: "https://client-dsvvv.vercel.app",
+    url: "https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com",
     siteName: "Shri Shivcharan Dharmarth Manav Sewa Trust",
     images: [
       {
@@ -56,14 +56,15 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/logo.png", type: "image/png" },
       { url: "/favicon.ico", sizes: "any" },
       { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
       { url: "/favicon-512.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [
-      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/logo.png", type: "image/png" },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: "/logo.png",
   },
 };
 
