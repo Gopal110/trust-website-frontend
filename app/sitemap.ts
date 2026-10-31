@@ -1,61 +1,64 @@
 import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com';
-  const currentDate = new Date();
+  // Official canonical base URL — NEVER use vercel.app URLs here
+  const BASE = 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com';
+
+  // Use a fixed date for stable sitemap output (update manually on content change)
+  const lastModified = new Date('2024-11-01');
 
   return [
     {
-      url: baseUrl,
-      lastModified: currentDate,
+      url: `${BASE}/`,
+      lastModified,
       changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/about`,
-      lastModified: currentDate,
+      url: `${BASE}/about`,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services`,
-      lastModified: currentDate,
+      url: `${BASE}/services`,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/events`,
-      lastModified: currentDate,
+      url: `${BASE}/events`,
+      lastModified,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/gallery`,
-      lastModified: currentDate,
+      url: `${BASE}/gallery`,
+      lastModified,
       changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/blog`,
-      lastModified: currentDate,
+      url: `${BASE}/blog`,
+      lastModified,
       changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/volunteer`,
-      lastModified: currentDate,
+      url: `${BASE}/volunteer`,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
-      url: `${baseUrl}/donate`,
-      lastModified: currentDate,
+      url: `${BASE}/donate`,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/contact`,
-      lastModified: currentDate,
+      url: `${BASE}/contact`,
+      lastModified,
       changeFrequency: 'monthly',
       priority: 0.6,
     },

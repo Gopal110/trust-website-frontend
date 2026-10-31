@@ -1,9 +1,12 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /login
 
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
+Disallow: /login
 
+Host: https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com
 Sitemap: https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/sitemap.xml
