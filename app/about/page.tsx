@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Heart, Target, Eye, BadgeCheck, Users, ShieldCheck, Sun } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'About Us | Shri Shivcharan Dharmarth Manav Sewa Trust',
+  title: 'About Us',
   description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट के उद्देश्य, मिशन, विजन और इतिहास के बारे में जानें। निःस्वार्थ सेवा, संस्कार एवं लोक कल्याण हमारा संकल्प।',
   alternates: {
     canonical: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/about',
