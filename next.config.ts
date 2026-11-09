@@ -49,18 +49,6 @@ const nextConfig: NextConfig = {
         destination: '/blog/:path*',
         permanent: true,
       },
-      // www domain → official apex domain
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.shri-shiv-charan-dharmarth-manav-seva-trust.com',
-          },
-        ],
-        destination: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*',
-        permanent: true,
-      },
       // Old Vercel preview URL → official apex domain
       {
         source: '/:path*',
