@@ -13,7 +13,7 @@
 
 ## 🌐 Live Website
 
-> **[https://trust-website-frontend.vercel.app](https://trust-website-frontend.vercel.app)** *(update after deployment)*
+> **[https://shri-shiv-charan-dharmarth-manav-seva-trust.com](https://shri-shiv-charan-dharmarth-manav-seva-trust.com)**
 
 ---
 

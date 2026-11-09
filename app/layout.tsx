@@ -9,8 +9,11 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    "https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com"
+    "https://shri-shiv-charan-dharmarth-manav-seva-trust.com"
   ),
+  alternates: {
+    canonical: "https://shri-shiv-charan-dharmarth-manav-seva-trust.com/",
+  },
   title: {
     default: "Shri Shivcharan Dharmarth Manav Sewa Trust | मानव सेवा, गौ सेवा",
     template: "%s | Shri Shivcharan Dharmarth Manav Sewa Trust",
@@ -27,6 +30,7 @@ export const metadata: Metadata = {
     "India",
     "Mathura",
     "Goverdhan",
+    "श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट"
   ],
   robots: {
     index: true,
@@ -44,7 +48,7 @@ export const metadata: Metadata = {
     title: "Shri Shivcharan Dharmarth Manav Sewa Trust | मानव सेवा, गौ सेवा",
     description:
       "श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट एक समर्पित सामाजिक संस्था है, जो मानवता की सेवा एवं समाज कल्याण हेतु निरंतर कार्यरत है।",
-    url: "https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com",
+    url: "https://shri-shiv-charan-dharmarth-manav-seva-trust.com",
     siteName: "Shri Shivcharan Dharmarth Manav Sewa Trust",
     images: [
       {

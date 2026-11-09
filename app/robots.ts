@@ -16,7 +16,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/admin/login', '/login'],
       },
     ],
-    sitemap: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/sitemap.xml',
-    host: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com',
+    sitemap: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/sitemap.xml',
+    host: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com',
   };
 }

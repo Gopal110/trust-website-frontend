@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Copy, CheckCircle, QrCode, CreditCard, ShieldCheck, Heart, ArrowRight } from 'lucide-react';
+import { Copy, CheckCircle, QrCode, CreditCard, ShieldCheck, Heart, ArrowRight, Download } from 'lucide-react';
 import { API_BASE } from '@/lib/api';
 
 const DonatePage = () => {
@@ -155,20 +155,52 @@ const DonatePage = () => {
                </div>
             </div>
 
-            <div className="bg-orange-50 p-10 rounded-[40px] border-2 border-dashed border-orange-200 text-center relative overflow-hidden group">
+            <div className="bg-orange-50 p-8 sm:p-10 rounded-[40px] border-2 border-dashed border-orange-200 text-center relative overflow-hidden group">
                <div className="relative z-10">
-                  <h2 className="text-2xl font-bold mb-8 text-orange-600 flex items-center justify-center">
+                  <h2 className="text-2xl font-bold mb-3 text-orange-600 flex items-center justify-center">
                      <span className="mr-3"><QrCode /></span>
                      Scan to Pay (UPI)
                   </h2>
-                  <div className="bg-white w-56 h-56 mx-auto mb-8 flex items-center justify-center rounded-[30px] shadow-2xl p-4 border-8 border-gray-50 relative group-hover:scale-105 transition-transform duration-500">
-                     <div className="w-full h-full bg-gray-50 rounded-2xl flex items-center justify-center text-gray-300 font-bold text-xs uppercase text-center p-6 border-2 border-dashed border-gray-200">
-                        TRUST <br /> UPI QR CODE <br /> COMING SOON
+                  <p className="text-xs text-gray-600 mb-6 font-medium">Scan using PhonePe, Google Pay, Paytm, BHIM, or any UPI app</p>
+
+                  {/* Clean white quiet zone container with original aspect ratio */}
+                  <div className="bg-white max-w-[280px] w-full mx-auto mb-6 p-4 rounded-3xl shadow-xl border-4 border-white flex flex-col items-center">
+                     <div className="w-full aspect-square relative bg-white p-2 rounded-2xl flex items-center justify-center">
+                        <img 
+                          src="/trust-qr-code.jpg" 
+                          alt="Shri Shivcharan Dharmarth Manav Sewa Trust UPI QR Code" 
+                          className="w-full h-full object-contain select-none" 
+                        />
+                     </div>
+                     <div className="mt-3 text-center w-full px-2">
+                        <p className="text-[11px] font-bold text-gray-800 leading-tight uppercase">Shri Shivcharn Dharmarth Manav Sewa Trust</p>
+                        <p className="text-xs text-orange-600 font-mono font-bold mt-1">UPI ID: 8433278964@sbi</p>
                      </div>
                   </div>
-                  <div className="flex justify-center space-x-6">
-                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo.png" alt="UPI" className="h-4 grayscale hover:grayscale-0 transition opacity-50" />
-                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/PhonePe_Logo.png" alt="PhonePe" className="h-4 grayscale hover:grayscale-0 transition opacity-50" />
+
+                  {/* Action buttons: Download QR & Copy UPI ID */}
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+                    <a
+                      href="/trust-qr-code.jpg"
+                      download="shri-shivcharan-trust-qr.jpg"
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 text-xs font-bold px-4 py-2.5 bg-orange-600 text-white rounded-xl hover:bg-orange-700 transition shadow-md shadow-orange-600/20"
+                    >
+                      <Download size={14} />
+                      <span>Download QR Code</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => copyToClipboard('8433278964@sbi', 'UPI ID')}
+                      className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 text-xs font-bold px-4 py-2.5 bg-white text-gray-700 border border-gray-200 rounded-xl hover:border-orange-500 hover:text-orange-600 transition shadow-sm"
+                    >
+                      {copied === 'UPI ID' ? <CheckCircle size={14} className="text-green-500" /> : <Copy size={14} />}
+                      <span>{copied === 'UPI ID' ? 'UPI Copied!' : 'Copy UPI ID'}</span>
+                    </button>
+                  </div>
+
+                  <div className="flex justify-center space-x-6 items-center">
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo.png" alt="UPI" className="h-4 grayscale hover:grayscale-0 transition opacity-60" />
+                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/PhonePe_Logo.png" alt="PhonePe" className="h-4 grayscale hover:grayscale-0 transition opacity-60" />
                   </div>
                </div>
             </div>

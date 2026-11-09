@@ -14,10 +14,30 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'via.placeholder.com',
       },
+      {
+        // Render backend uploads (legacy or fallback)
+        protocol: 'https',
+        hostname: 'trust-website-backend.onrender.com',
+      },
+      {
+        protocol: 'http',
+        hostname: 'trust-website-backend.onrender.com',
+      },
     ],
   },
   async redirects() {
     return [
+      // /donation and /donations → /donate
+      {
+        source: '/donation',
+        destination: '/donate',
+        permanent: true,
+      },
+      {
+        source: '/donations',
+        destination: '/donate',
+        permanent: true,
+      },
       // /blogs → /blog (content redirect, path-based, no host condition needed)
       {
         source: '/blogs',
@@ -29,19 +49,19 @@ const nextConfig: NextConfig = {
         destination: '/blog/:path*',
         permanent: true,
       },
-      // apex domain → www (fallback for standalone/self-hosted mode; Vercel handles this via vercel.json)
+      // www domain → official apex domain
       {
         source: '/:path*',
         has: [
           {
             type: 'host',
-            value: 'shri-shiv-charan-dharmarth-manav-seva-trust.com',
+            value: 'www.shri-shiv-charan-dharmarth-manav-seva-trust.com',
           },
         ],
-        destination: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*',
+        destination: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*',
         permanent: true,
       },
-      // Old Vercel preview URL → official domain (fallback; Vercel handles this via vercel.json)
+      // Old Vercel preview URL → official apex domain
       {
         source: '/:path*',
         has: [
@@ -50,7 +70,7 @@ const nextConfig: NextConfig = {
             value: 'client-dsvvv.vercel.app',
           },
         ],
-        destination: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*',
+        destination: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*',
         permanent: true,
       },
     ];

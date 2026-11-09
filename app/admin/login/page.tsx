@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { API_BASE } from '@/lib/api';
 import {
@@ -28,6 +28,13 @@ const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+    if (token) {
+      router.push('/admin/dashboard');
+    }
+  }, [router]);
 
   // Forgot Password Modal State
   const [showForgotModal, setShowForgotModal] = useState(false);

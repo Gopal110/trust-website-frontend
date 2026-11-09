@@ -19,16 +19,16 @@ export const metadata: Metadata = {
   title: 'Shri Shivcharan Dharmarth Manav Sewa Trust | Official Home | Goverdhan Mathura',
   description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट की आधिकारिक वेबसाइट। मानव सेवा, गौ सेवा, निःशुल्क स्वास्थ्य शिविर, अन्नदान, वृक्षारोपण एवं भारतीय संस्कृति का संरक्षण। Goverdhan, Mathura, Uttar Pradesh।',
   alternates: {
-    canonical: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/',
+    canonical: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/',
   },
   openGraph: {
     title: 'Shri Shivcharan Dharmarth Manav Sewa Trust | Official Home',
     description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट की आधिकारिक वेबसाइट। मानव सेवा, गौ सेवा, अन्नदान एवं समाज कल्याण हेतु समर्पित।',
-    url: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/',
+    url: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/',
     type: 'website',
     images: [
       {
-        url: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/logo.png',
+        url: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/logo.png',
         width: 800,
         height: 600,
         alt: 'Shri Shivcharan Dharmarth Manav Sewa Trust',
@@ -43,9 +43,9 @@ const organizationSchema = {
   '@type': 'NGO',
   name: 'Shri Shivcharan Dharmarth Manav Sewa Trust',
   alternateName: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट',
-  url: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/',
-  logo: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/logo.png',
-  image: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/logo.png',
+  url: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/',
+  logo: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/logo.png',
+  image: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/logo.png',
   description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट एक समर्पित सामाजिक संस्था है, जो मानवता की सेवा एवं समाज कल्याण हेतु निरंतर कार्यरत है।',
   telephone: ['+917668473135', '+919719415506', '+918433278964'],
   email: 'sscdms.trust@gmail.com',
@@ -58,7 +58,7 @@ const organizationSchema = {
     postalCode: '281502',
   },
   sameAs: [
-    'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/',
+    'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/',
   ],
   foundingLocation: {
     '@type': 'Place',
@@ -75,7 +75,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'Shri Shivcharan Dharmarth Manav Sewa Trust',
-  url: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/',
+  url: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/',
   description: 'Official website of Shri Shivcharan Dharmarth Manav Sewa Trust — NGO for social welfare, cow protection, food donation, health camps in Goverdhan Mathura.',
   inLanguage: ['hi', 'en'],
   publisher: {

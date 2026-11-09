@@ -7,21 +7,21 @@ export const metadata: Metadata = {
    description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट के उद्देश्य, मिशन, विजन और इतिहास के बारे में जानें। निःस्वार्थ सेवा, संस्कार एवं लोक कल्याण हमारा संकल्प।',
 
    alternates: {
-      canonical: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/about',
+      canonical: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/about',
    },
 
    robots: {
-      index: false,
+      index: true,
       follow: true,
       googleBot: {
-         index: false,
+         index: true,
          follow: true,
       },
    },
    openGraph: {
       title: 'About Us | Shri Shivcharan Dharmarth Manav Sewa Trust',
       description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट के उद्देश्य, मिशन, विजन और इतिहास के बारे में जानें।',
-      url: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/about',
+      url: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/about',
    },
 };
 

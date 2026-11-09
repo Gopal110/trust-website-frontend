@@ -5,10 +5,10 @@
       "has": [
         {
           "type": "host",
-          "value": "client-dsvvv.vercel.app"
+          "value": "www.shri-shiv-charan-dharmarth-manav-seva-trust.com"
         }
       ],
-      "destination": "https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*",
+      "destination": "https://shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*",
       "permanent": true
     },
     {
@@ -16,10 +16,20 @@
       "has": [
         {
           "type": "host",
-          "value": "shri-shiv-charan-dharmarth-manav-seva-trust.com"
+          "value": "client-dsvvv.vercel.app"
         }
       ],
-      "destination": "https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*",
+      "destination": "https://shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/donation",
+      "destination": "/donate",
+      "permanent": true
+    },
+    {
+      "source": "/donations",
+      "destination": "/donate",
       "permanent": true
     }
   ],

@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: 'Our Work & Services',
   description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट के सेवा कार्य: गरीबों की मदद, स्वास्थ्य शिविर, गौ सेवा, अन्नदान, वृक्षारोपण एवं प्राकृतिक कृषि।',
   alternates: {
-    canonical: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/services',
+    canonical: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/services',
   },
   openGraph: {
     title: 'Our Work & Services | Shri Shivcharan Dharmarth Manav Sewa Trust',
     description: 'श्री शिवचरण धर्मार्थ मानव सेवा ट्रस्ट के सेवा कार्य एवं समाज कल्याण अभियान।',
-    url: 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/services',
+    url: 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com/services',
   },
 };
 
