@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Official canonical domain
-  const BASE = 'https://shri-shiv-charan-dharmarth-manav-seva-trust.com';
+  const BASE = 'https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com';
 
   const lastModified = new Date();
 

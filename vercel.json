@@ -8,7 +8,7 @@
           "value": "client-dsvvv.vercel.app"
         }
       ],
-      "destination": "https://shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*",
+      "destination": "https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com/:path*",
       "permanent": true
     },
     {

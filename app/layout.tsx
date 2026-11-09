@@ -9,7 +9,7 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    "https://shri-shiv-charan-dharmarth-manav-seva-trust.com"
+    "https://www.shri-shiv-charan-dharmarth-manav-seva-trust.com"
   ),
   alternates: {
     canonical: "https://shri-shiv-charan-dharmarth-manav-seva-trust.com/",
